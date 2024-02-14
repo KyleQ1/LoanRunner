@@ -15,6 +15,7 @@ public class Student extends Actor {
         move();
         fall();
         applyFriction();
+        collectCoin();
     }
 
     public void fall() {
@@ -56,7 +57,22 @@ public class Student extends Actor {
     }
 
     private boolean onGround() {
-        // Check if the character is on the ground
-        return getY() >= ground;
+        // Check for platform directly below the Student
+        Platform platform = (Platform) getOneIntersectingObject(Platform.class);
+        if (platform != null && v >= 0) {
+            // Student is on a platform
+            setLocation(getX(), platform.getY()-30);
+            return true;
+        } else {
+            // Check if the Student is at the ground level
+            return getY() >= ground;
+        }
+    }
+    
+    private void collectCoin() {
+        Coin coin = (Coin) getOneIntersectingObject(Coin.class);
+        if (coin != null) {
+            getWorld().removeObject(coin);
+        }
     }
 }
