@@ -13,7 +13,7 @@ USER INSTRUCTIONS:
 
 
 Project to-dos: 
-- implement scrolling window
+x implement scrolling window
 - design map (platforms, obstacles, enemy locations)
 - make scoreboard
 - make intro and credit scenes
