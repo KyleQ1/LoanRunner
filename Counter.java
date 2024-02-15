@@ -68,6 +68,8 @@ public class Counter extends Actor
             value--;
             updateImage();
         }
+        // Constantly set location to corner
+        setLocation(1150, 50);
     }
 
     /**

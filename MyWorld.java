@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+    private Student player;
+    private int SCROLL_SPEED = 15;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -16,12 +17,12 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1200, 800, 1);
+        super(1200, 800, 1, false);
         
         Counter counter = new Counter();
         addObject(counter, 1150, 50);
-        Student student = new Student(counter);
-        addObject(student, 600, 750);
+        player = new Student(counter);
+        addObject(player, 600, 750);
         
         Platform platform1 = new Platform();
         addObject(platform1, 600, 675);
@@ -37,5 +38,29 @@ public class MyWorld extends World
         Coin c3 = new Coin();
         addObject(c3, 800, 530);
         
+    }
+    
+    public void act() {
+        scrollWithPlayer();
+    }
+    
+     private void scrollWithPlayer() {
+        int playerX = player.getX();
+
+        // Check if the player is close to the left edge
+        if (playerX < getWidth() / 4) {
+            scroll(-SCROLL_SPEED);
+        }
+        // Check if the player is close to the right edge
+        else if (playerX > getWidth() - getWidth() / 4) {
+            scroll(SCROLL_SPEED);
+        }
+    }
+
+    private void scroll(int amount) {
+        for (Object obj : getObjects(null)) {
+            Actor actor = (Actor) obj;
+            actor.setLocation(actor.getX() - amount, actor.getY());
+        }
     }
 }
