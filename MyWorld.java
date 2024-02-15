@@ -30,6 +30,14 @@ public class MyWorld extends World
         addObject(platform2, 300, 550);
         Platform platform3 = new Platform();
         addObject(platform3, 800, 600);
+        Platform platform4 = new Platform();
+        addObject(platform4, 1400, 450);
+        Platform platform5 = new Platform();
+        addObject(platform5, 900, 300);
+        Platform platform6 = new Platform();
+        addObject(platform6, 750, 200);
+        Platform platform7 = new Platform();
+        addObject(platform7, 450,350);
         
         Coin c1 = new Coin();
         addObject(c1, 600, 500);
