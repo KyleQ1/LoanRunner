@@ -24,21 +24,15 @@ public class MyWorld extends World
         addObject(counter, 1150, 50);
         player = new Student(counter);
         addObject(player, 600, 750);
+                
+        int[] xPlatform = {300, 450, 600, 750, 800, 900, 1400, 1450, 1600, 2000, 2100, 2500, 3000, 3500, 3700, 3900, 4100, 4400, 4700, 5000};
+        int[] yPlatform = {550, 350, 675, 200, 600, 300, 450,  250,  150,  150,  400,  300,  300,  300,  400,  500,  600,  500,  400,  200};
         
-        Platform platform1 = new Platform();
-        addObject(platform1, 600, 675);
-        Platform platform2 = new Platform();
-        addObject(platform2, 300, 550);
-        Platform platform3 = new Platform();
-        addObject(platform3, 800, 600);
-        Platform platform4 = new Platform();
-        addObject(platform4, 1400, 450);
-        Platform platform5 = new Platform();
-        addObject(platform5, 900, 300);
-        Platform platform6 = new Platform();
-        addObject(platform6, 750, 200);
-        Platform platform7 = new Platform();
-        addObject(platform7, 450,350);
+        for (int i = 0; i < xPlatform.length; i++) {
+            Platform platform = new Platform();
+            addObject(platform, xPlatform[i], yPlatform[i]);
+        }
+
         
         Coin c1 = new Coin();
         addObject(c1, 600, 500);

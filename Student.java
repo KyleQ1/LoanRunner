@@ -22,6 +22,7 @@ public class Student extends Actor {
         fall();
         applyFriction();
         collectCoin();
+        hitRoof();
     }
 
     public void fall() {
@@ -80,6 +81,12 @@ public class Student extends Actor {
         if (coin != null) {
             counter.addScore(5);
             getWorld().removeObject(coin);
+        }
+    }
+    private void hitRoof() {
+        if (getY() <= 30) {
+            setLocation(getX(), 31);
+            v=-v;
         }
     }
 }
