@@ -34,21 +34,13 @@ public class Student extends Actor {
         }
     }
 
-    public void move() {
-        int nextX = getX() + strafeSpeed;
-        int nextY = getY() + (int)Math.round(v);
-        
-        int adjustment = 0;
-        if (strafeSpeed != 0) {
-            adjustment = Math.abs(strafeSpeed)/strafeSpeed;
-        }
-        
-        Wall w = (Wall) getOneIntersectingObject(Wall.class);
+    public void move() {        
+        Wall w = (Wall) getOneObjectAtOffset(strafeSpeed, 0, Wall.class);
         if (w != null) {
-            setLocation(getX() - adjustment, nextY);
-            strafeSpeed = 0;
+            // should keep the student on the same side of the wall
+            setLocation(getX(), getY() + (int)Math.round(v));
         } else {
-            setLocation(nextX, nextY);
+            setLocation(getX() + strafeSpeed, getY() + (int)Math.round(v));
         }
     }
 

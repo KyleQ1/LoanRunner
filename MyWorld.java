@@ -32,14 +32,23 @@ public class MyWorld extends World
             Platform platform = new Platform();
             addObject(platform, xPlatform[i], yPlatform[i]);
         }
-
         
-        Coin c1 = new Coin();
-        addObject(c1, 600, 500);
-        Coin c2 = new Coin();
-        addObject(c2, 400, 450);
-        Coin c3 = new Coin();
-        addObject(c3, 800, 530);
+        int[] xWall = {0,   0,   0,   0,   700, 2300, 2300, 2300, 5200, 5200, 5200};
+        int[] yWall = {700, 500, 300, 100, 700, 700,  500,  300,  700,  500,  300};
+        
+        for (int i = 0; i < xWall.length; i++) {
+            Wall wall = new Wall();
+            addObject(wall,xWall[i], yWall[i]);
+        }
+        
+        
+        int[] xCoin = {300, 450, 600, 750, 800, 2000, 2100, 2500, 3000, 3500, 3700, 3900, 4100, 4400, 4700, 5000};
+        int[] yCoin = {650, 350, 500,  300,  200,  200,  450,  350,  350,  350,  450,  550,  650,  550,  450,  250};
+        
+        for (int i = 0; i < xCoin.length; i++) {
+            Coin c = new Coin();
+            addObject(c, xCoin[i], yCoin[i]);
+        }
         
         Obstacle o = new Obstacle();
         addObject(o, 200, 200);

@@ -10,7 +10,7 @@ public class Wall extends Actor
 {
     public Wall() {
         // Set the image for the platform
-        setImage(new GreenfootImage(10, 200)); // Change dimensions as needed
+        setImage(new GreenfootImage(20, 200)); // Change dimensions as needed
         getImage().setColor(Color.WHITE);
         getImage().fill();
     }
