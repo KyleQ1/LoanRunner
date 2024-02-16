@@ -35,7 +35,21 @@ public class Student extends Actor {
     }
 
     public void move() {
-        setLocation(getX() + strafeSpeed, getY() + (int)Math.round(v));
+        int nextX = getX() + strafeSpeed;
+        int nextY = getY() + (int)Math.round(v);
+        
+        int adjustment = 0;
+        if (strafeSpeed != 0) {
+            adjustment = Math.abs(strafeSpeed)/strafeSpeed;
+        }
+        
+        Wall w = (Wall) getOneIntersectingObject(Wall.class);
+        if (w != null) {
+            setLocation(getX() - adjustment, nextY);
+            strafeSpeed = 0;
+        } else {
+            setLocation(nextX, nextY);
+        }
     }
 
     private void checkJump() {
@@ -87,6 +101,12 @@ public class Student extends Actor {
         if (getY() <= 30) {
             setLocation(getX(), 31);
             v=-v;
+        }
+    }
+    private void hitWall() {
+        Wall w = (Wall) getOneIntersectingObject(Wall.class);
+        if (w != null) {
+            
         }
     }
 }
