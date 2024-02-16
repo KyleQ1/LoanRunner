@@ -8,7 +8,11 @@ public class Student extends Actor {
     private int strafeSpeed = 0; 
     private final int maxStrafeSpeed = 14; 
     private final int strafeAcceleration = 2;
+    private Counter counter;
 
+    Student(Counter c) {
+        counter = c;
+    }
     public void act() {
         checkJump();
         checkKeyPress();
@@ -72,6 +76,7 @@ public class Student extends Actor {
     private void collectCoin() {
         Coin coin = (Coin) getOneIntersectingObject(Coin.class);
         if (coin != null) {
+            counter.addScore(5);
             getWorld().removeObject(coin);
         }
     }

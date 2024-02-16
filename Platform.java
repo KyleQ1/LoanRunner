@@ -11,7 +11,7 @@ public class Platform extends Actor
     public Platform() {
         // Set the image for the platform
         setImage(new GreenfootImage(200, 10)); // Change dimensions as needed
-        getImage().setColor(Color.GRAY);
+        getImage().setColor(Color.WHITE);
         getImage().fill();
     }
 }

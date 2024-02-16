@@ -10,3 +10,12 @@ VERSION or DATE:
 HOW TO START THIS PROJECT:
 AUTHORS:
 USER INSTRUCTIONS:
+
+
+Project to-dos: 
+x implement scrolling window
+- design map (platforms, obstacles, enemy locations)
+- make scoreboard
+- make intro and credit scenes
+- add images, animation, and sound
+- add dialogue/plot
