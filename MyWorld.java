@@ -50,8 +50,14 @@ public class MyWorld extends World
             addObject(c, xCoin[i], yCoin[i]);
         }
         
-        Obstacle o = new Obstacle();
-        addObject(o, 200, 200);
+        int[] xObstacle = {300, 450, 2000, 2250, 3900, 4100, 4400, 4700, 5000};
+        int[] yObstacle = {400, 100, 350,  300,  350,  450,  550,  450,  250};
+        
+        for (int i = 0; i < xObstacle.length; i++) {
+            Obstacle o = new Obstacle();
+            addObject(o, xObstacle[i], yObstacle[i]);
+        }
+
         
     }
     
