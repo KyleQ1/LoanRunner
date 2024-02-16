@@ -19,3 +19,4 @@ x implement scrolling window
 - make intro and credit scenes
 - add images, animation, and sound
 - add dialogue/plot
+- after passing the final wall, could have cutscene with shark => if debt < 0, the shark kills you; if debt > 0, you win
