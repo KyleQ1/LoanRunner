@@ -18,6 +18,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 800, 1, false);
+        setBackground("falling-golden-poker-chips-tokens-600nw-1933775606-transformed.png");
         
         Counter counter = new Counter();
         addObject(counter, 1150, 50);
@@ -45,6 +46,9 @@ public class MyWorld extends World
         addObject(c2, 400, 450);
         Coin c3 = new Coin();
         addObject(c3, 800, 530);
+        
+        Obstacle o = new Obstacle();
+        addObject(o, 200, 200);
         
     }
     

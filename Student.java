@@ -9,7 +9,9 @@ public class Student extends Actor {
     private final int maxStrafeSpeed = 14; 
     private final int strafeAcceleration = 2;
     private Counter counter;
-
+    public Student() {
+        setImage("man01.png");
+    }
     Student(Counter c) {
         counter = c;
     }
