@@ -69,11 +69,11 @@ public class MyWorld extends World
         int playerX = player.getX();
 
         // Check if the player is close to the left edge
-        if (playerX < getWidth() / 4) {
+        if (playerX < getWidth() / 3) {
             scroll(-SCROLL_SPEED);
         }
         // Check if the player is close to the right edge
-        else if (playerX > getWidth() - getWidth() / 4) {
+        else if (playerX > getWidth() - getWidth() / 3) {
             scroll(SCROLL_SPEED);
         }
     }
