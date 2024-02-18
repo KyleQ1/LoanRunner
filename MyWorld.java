@@ -10,6 +10,7 @@ public class MyWorld extends World
 {
     private Student player;
     private int SCROLL_SPEED = 15;
+    private TitleImage ti;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -58,10 +59,20 @@ public class MyWorld extends World
             addObject(o, xObstacle[i], yObstacle[i]);
         }
 
-        
+        TitleImage ti = new TitleImage();
+        addObject(ti, getWidth() / 2, getHeight() / 2);
     }
     
     public void act() {
+        if (Greenfoot.isKeyDown("up")) {
+            // Remove the TitleImage
+            try{
+            removeObject(getObjects(TitleImage.class).get(0));}
+            
+            catch (IndexOutOfBoundsException e) {
+            // do nothing
+        }
+        }
         scrollWithPlayer();
     }
     
