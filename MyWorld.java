@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.GreenfootSound;
 /**
  * Write a description of class MyWorld here.
  * 
@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    public GreenfootSound backgroundMusic;
     private Student player;
     private int SCROLL_SPEED = 15;
     private TitleImage ti;
@@ -21,6 +22,10 @@ public class MyWorld extends World
         super(1200, 800, 1, false);
         setBackground("falling-golden-poker-chips-tokens-600nw-1933775606-transformed.png");
         
+        backgroundMusic = new GreenfootSound("bgMusic.mp3");
+        backgroundMusic.setVolume(50);
+        backgroundMusic.playLoop();
+
         Counter counter = new Counter();
         addObject(counter, 1150, 50);
         player = new Student(counter);
@@ -55,7 +60,7 @@ public class MyWorld extends World
         int[] yObstacle = {400, 100, 350,  300,  350,  450,  550,  450,  250};
         
         for (int i = 0; i < xObstacle.length; i++) {
-            Obstacle o = new Obstacle();
+            Obstacle o = new Obstacle(backgroundMusic);
             addObject(o, xObstacle[i], yObstacle[i]);
         }
 

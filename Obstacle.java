@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.GreenfootSound;
 /**
  * Write a description of class Obstacle here.
  * 
@@ -8,8 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Obstacle extends Actor
 {
-    public Obstacle() {
+    private GreenfootSound musica;
+    public Obstacle(GreenfootSound music) {
         setImage("bomb.png");
+        musica = music;
     }
         public void act()
     {
@@ -20,7 +22,8 @@ public class Obstacle extends Actor
         Student s = (Student) getOneIntersectingObject(Student.class);
         if (s!=null) {
             MyWorld w = new MyWorld();
-            Greenfoot.setWorld(w);       
+            Greenfoot.setWorld(w);
+            musica.stop();
         }
     }
 }
