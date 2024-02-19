@@ -23,7 +23,7 @@ public class MyWorld extends World
         setBackground("falling-golden-poker-chips-tokens-600nw-1933775606-transformed.png");
         
         backgroundMusic = new GreenfootSound("bgMusic.mp3");
-        backgroundMusic.setVolume(50);
+        backgroundMusic.setVolume(40);
         backgroundMusic.playLoop();
 
         Counter counter = new Counter();

@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.GreenfootSound;
 
 public class Student extends Actor {
     private double v = 0; 
@@ -9,6 +10,9 @@ public class Student extends Actor {
     private final int maxStrafeSpeed = 14; 
     private final int strafeAcceleration = 2;
     private Counter counter;
+    
+    private GreenfootSound jump;
+
     public Student() {
         setImage("man01.png");
     }
@@ -47,6 +51,9 @@ public class Student extends Actor {
     private void checkJump() {
         if (Greenfoot.isKeyDown("up") && onGround()) {
             v = -10;
+            jump = new GreenfootSound("jump.mp3");
+            jump.setVolume(40);
+            jump.play();
         }
     }
 
