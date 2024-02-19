@@ -1,5 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import greenfoot.GreenfootSound;
+import java.util.List;
+
 /**
  * Write a description of class MyWorld here.
  * 
@@ -23,8 +25,7 @@ public class MyWorld extends World
         setBackground("bg.jpg");
         
         backgroundMusic = new GreenfootSound("bgMusic.mp3");
-        backgroundMusic.setVolume(35);
-        backgroundMusic.playLoop();
+        backgroundMusic.setVolume(50);
 
         Counter counter = new Counter();
         addObject(counter, 1150, 50);
@@ -64,21 +65,38 @@ public class MyWorld extends World
             addObject(o, xObstacle[i], yObstacle[i]);
         }
 
-        TitleImage ti = new TitleImage();
+        ti = new TitleImage();
         addObject(ti, getWidth() / 2, getHeight() / 2);
+        
+        LoanShark shark = new LoanShark();
+        addObject(shark, 1024, 700);
     }
     
     public void act() {
-        if (Greenfoot.isKeyDown("up")) {
+        if (Greenfoot.isKeyDown("up") || Greenfoot.mouseClicked(ti)) {
             // Remove the TitleImage
             try{
-            removeObject(getObjects(TitleImage.class).get(0));}
+                removeObject(getObjects(TitleImage.class).get(0));
+                backgroundMusic.playLoop(); 
+            }
             
             catch (IndexOutOfBoundsException e) {
             // do nothing
-        }
+            }
         }
         scrollWithPlayer();
+        printPlatformCoordinates();
+    }
+    
+    public void printPlatformCoordinates() {
+        List<Platform> platforms = getObjects(Platform.class);
+        for (Platform platform : platforms) {
+            if (platform.isPrinted() == false) {
+                int x = platform.getX();
+                int y = platform.getY();
+                System.out.println("Platform coordinates: (" + x + ", " + y + ")"); 
+            }    
+        }
     }
     
      private void scrollWithPlayer() {

@@ -36,22 +36,12 @@ public class Counter extends Actor
     private GreenfootImage background;
     private int value;
     private int target;
-    private String prefix;
-    
+
     public Counter()
     {
-        this(new String());
-    }
-
-    /**
-     * Create a new counter
-     */
-    public Counter(String prefix)
-    {
-        background = getImage();  // get image from class
+        background = getImage();
         value = -50;
         target = -50;
-        this.prefix = prefix;
         updateImage();
     }
     
@@ -98,16 +88,6 @@ public class Counter extends Actor
         value = newValue;
         updateImage();
     }
-    
-    /**
-     * Sets a text prefix that should be displayed before
-     * the counter value (e.g. "Score: ").
-     */
-    public void setPrefix(String prefix)
-    {
-        this.prefix = prefix;
-        updateImage();
-    }
 
     /**
      * Update the image on screen to show the current value.
@@ -115,7 +95,7 @@ public class Counter extends Actor
     private void updateImage()
     {
         GreenfootImage image = new GreenfootImage(background);
-        GreenfootImage text = new GreenfootImage(prefix + value, 22, Color.BLACK, transparent);
+        GreenfootImage text = new GreenfootImage("Debt: " + value + "k", 22, Color.BLACK, transparent);
         
         if (text.getWidth() > image.getWidth() - 20)
         {

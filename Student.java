@@ -108,4 +108,7 @@ public class Student extends Actor {
             
         }
     }
+    private void winCondition() {
+        
+    }
 }
