@@ -20,7 +20,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 800, 1, false);
-        setBackground("falling-golden-poker-chips-tokens-600nw-1933775606-transformed.png");
+        setBackground("bg.jpg");
         
         backgroundMusic = new GreenfootSound("bgMusic.mp3");
         backgroundMusic.setVolume(40);
