@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=LoanShark
+comment0.text=\n\ Write\ a\ description\ of\ class\ LaonShark\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=LoanShark()
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ LaonShark\n
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ textboxLogic()
+comment4.params=
+comment4.target=void\ walkingLogic()
+comment5.params=direction
+comment5.target=void\ walkDirection(boolean)
+comment6.params=
+comment6.target=void\ animate()
+comment7.params=dx
+comment7.target=boolean\ canMove(int)
+comment8.params=
+comment8.target=void\ flipImage()
+comment9.params=text
+comment9.target=void\ displayTextbox(java.lang.String)
+numComments=10
