@@ -102,13 +102,14 @@ public class Student extends Actor {
             v=-v;
         }
     }
-    private void hitWall() {
-        Wall w = (Wall) getOneIntersectingObject(Wall.class);
-        if (w != null) {
-            
-        }
-    }
     private void winCondition() {
+        LoanShark loan = (LoanShark) getOneIntersectingObject(LoanShark.class);
         
+        if (counter.getValue() >= 0) {
+            // Do something
+            
+            MyWorld w = new MyWorld();
+            Greenfoot.setWorld(w);
+        }
     }
 }

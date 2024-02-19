@@ -3,6 +3,7 @@ class.Coin.image=money4.png
 class.Counter.image=Counter.png
 class.LoanShark.image=loanshark-0.png
 class.MyWorld.image=falling-golden-poker-chips-tokens-600nw-1933775606-transformed.png
+class.Obstacle.image=slotmachine.png
 class.Student.image=man01.png
 dependency1.from=MyWorld
 dependency1.to=Student
@@ -28,6 +29,12 @@ dependency15.type=UsesDependency
 dependency16.from=Student
 dependency16.to=Coin
 dependency16.type=UsesDependency
+dependency17.from=Student
+dependency17.to=LoanShark
+dependency17.type=UsesDependency
+dependency18.from=Student
+dependency18.to=MyWorld
+dependency18.type=UsesDependency
 dependency2.from=MyWorld
 dependency2.to=TitleImage
 dependency2.type=UsesDependency
@@ -57,7 +64,7 @@ editor.fx.0.width=800
 editor.fx.0.x=320
 editor.fx.0.y=74
 height=875
-package.numDependencies=16
+package.numDependencies=18
 package.numTargets=9
 project.charset=UTF-8
 publish.hasSource=false
@@ -137,13 +144,7 @@ target9.width=120
 target9.x=0
 target9.y=0
 version=3.1.0
-<<<<<<< HEAD
-width=1550
-||||||| parent of ac6c28b (Do stuff)
-width=1936
-=======
 width=1440
->>>>>>> ac6c28b (Do stuff)
 world.lastInstantiated=MyWorld
 xPosition=0
 yPosition=25
