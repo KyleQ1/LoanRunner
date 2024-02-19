@@ -9,6 +9,7 @@ import greenfoot.GreenfootSound;
 public class Obstacle extends Actor
 {
     private GreenfootSound musica;
+    private GreenfootSound bomb;
     public Obstacle(GreenfootSound music) {
         setImage("bomb.png");
         musica = music;
@@ -23,6 +24,9 @@ public class Obstacle extends Actor
         if (s!=null) {
             MyWorld w = new MyWorld();
             Greenfoot.setWorld(w);
+            bomb = new GreenfootSound("bomb.mp3");
+            bomb.setVolume(35);
+            bomb.play();
             musica.stop();
         }
     }

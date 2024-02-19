@@ -52,7 +52,7 @@ public class Student extends Actor {
         if (Greenfoot.isKeyDown("up") && onGround()) {
             v = -10;
             jump = new GreenfootSound("jump.mp3");
-            jump.setVolume(40);
+            jump.setVolume(30);
             jump.play();
         }
     }
