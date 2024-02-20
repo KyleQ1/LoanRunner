@@ -25,15 +25,14 @@ public class World2 extends World
         super(1200, 800, 1, false);
         setBackground("bg.jpg");
 
-        backgroundMusic.setVolume(50);
+        backgroundMusic.setVolume(35);  
 
+        prepare();
         Counter counter = new Counter();
         addObject(counter, 1150, 50);
         player = new Student(counter);
         player.level = 2;
         addObject(player, 600, 750);
-
-        prepare();
         ti = new TitleImage();
         addObject(ti, getWidth() / 2, getHeight() / 2);
     }

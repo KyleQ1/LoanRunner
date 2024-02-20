@@ -26,12 +26,6 @@ public class World1 extends World
         backgroundMusic = new GreenfootSound("bgMusic.mp3");
         backgroundMusic.setVolume(35);
 
-        Counter counter = new Counter();
-        addObject(counter, 1150, 50);
-        player = new Student(counter);
-        player.level = 1;
-        addObject(player, 600, 750);
-
         int[] xPlatform = {300, 450, 600, 750, 800, 900, 1400, 1450, 1600, 2000, 2100, 2500, 3000, 3500, 3700, 3900, 4100, 4400, 4700, 5000};
         int[] yPlatform = {550, 350, 675, 200, 600, 300, 450,  250,  150,  150,  400,  300,  300,  300,  400,  500,  600,  500,  400,  200};
 
@@ -48,12 +42,16 @@ public class World1 extends World
             addObject(wall,xWall[i], yWall[i]);
         }
 
-        ti = new TitleImage();
-        addObject(ti, getWidth() / 2, getHeight() / 2);
-
         LoanShark shark = new LoanShark();
         addObject(shark, 1024, 700);
         prepare();
+        ti = new TitleImage();
+        addObject(ti, getWidth() / 2, getHeight() / 2);
+        Counter counter = new Counter();
+        addObject(counter, 1150, 50);
+        player = new Student(counter);
+        player.level = 1;
+        addObject(player, 600, 750);
     }
 
     public void act() {

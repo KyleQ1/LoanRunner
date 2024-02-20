@@ -114,7 +114,7 @@ public class Student extends Actor {
                 counter.addScore(5);
                 getWorld().removeObject(coin);
                 GreenfootSound test = new GreenfootSound("money.mp3");
-                test.setVolume(35);
+                test.setVolume(30);
                 test.play();
             }
         }
