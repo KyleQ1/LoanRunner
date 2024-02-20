@@ -25,7 +25,7 @@ public class MyWorld extends World
         setBackground("bg.jpg");
         
         backgroundMusic = new GreenfootSound("bgMusic.mp3");
-        backgroundMusic.setVolume(50);
+        backgroundMusic.setVolume(35);
 
         Counter counter = new Counter();
         addObject(counter, 1150, 50);

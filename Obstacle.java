@@ -27,7 +27,7 @@ public class Obstacle extends Actor
         if (s!=null) {
             MyWorld w = new MyWorld();
             Greenfoot.setWorld(w);
-            bomb = new GreenfootSound("kaching.mp3");
+            bomb = new GreenfootSound("bomb.mp3");
             bomb.setVolume(35);
             bomb.play();
             musica.stop();

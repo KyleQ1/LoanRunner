@@ -10,11 +10,19 @@ public class Student extends Actor {
     private final int maxStrafeSpeed = 14; 
     private final int strafeAcceleration = 2;
     private Counter counter;
+    private int idleAnimation = 1;
+    private int jumpAnimation = 1;
+    private int runAnimation = 1;
+    private int animationTimer = 0;
+    private boolean isJumping = false;
+    private boolean wasJumpingForward = false;
+    private boolean wasRunningForward = false;
+    private Actor textboxActor;
     
     private GreenfootSound jump;
 
     public Student() {
-        setImage("man01.png");
+        setImage("idle1.png");
     }
     Student(Counter c) {
         counter = c;
@@ -27,6 +35,9 @@ public class Student extends Actor {
         applyFriction();
         collectCoin();
         hitRoof();
+        animateIdle();
+        animateJump();
+        animateRun();
     }
 
     public void fall() {
@@ -81,7 +92,7 @@ public class Student extends Actor {
         Platform platform = (Platform) getOneIntersectingObject(Platform.class);
         if (platform != null && v >= 0) {
             // Student is on a platform
-            setLocation(getX(), platform.getY()-30);
+            setLocation(getX(), platform.getY()-45);
             return true;
         } else {
             // Check if the Student is at the ground level
@@ -89,11 +100,18 @@ public class Student extends Actor {
         }
     }
     
+    private boolean notMoving() {
+        return onGround() && strafeSpeed == 0;
+    }
+    
     private void collectCoin() {
         Coin coin = (Coin) getOneIntersectingObject(Coin.class);
         if (coin != null) {
             counter.addScore(5);
             getWorld().removeObject(coin);
+            GreenfootSound test = new GreenfootSound("money.mp3");
+            test.setVolume(35);
+            test.play();
         }
     }
     private void hitRoof() {
@@ -111,5 +129,102 @@ public class Student extends Actor {
             MyWorld w = new MyWorld();
             Greenfoot.setWorld(w);
         }
+    }
+    private void animateIdle() {
+        if (idleAnimation >= 6) {
+            idleAnimation = 1;
+        }
+        if (notMoving() && animationTime(8)) {
+            setImage(new GreenfootImage("idle"+idleAnimation+".png"));
+            idleAnimation++;
+        }
+    }
+    
+    private void animateJump() {
+        // Refresh jump state
+        if (onGround()) {
+            isJumping = false;
+        }
+    
+        // Determine the direction of the fall
+        boolean fallingForward = (strafeSpeed < 0);
+
+        // If player is jumping
+        if (v < 0 && animationTime(8)) {
+            if (!isJumping) {
+                // Play it once
+                jumpAnimation = 1;
+                isJumping = true;
+            }
+            if (jumpAnimation < 3) {
+                setImage(new GreenfootImage("jump" + jumpAnimation + ".png"));
+                if (fallingForward) {
+                    flipImage(getImage());
+                }
+                jumpAnimation++;
+            }
+        }
+        // If player is falling
+        else if (v > 0 && animationTime(8)) {
+            if (!isJumping) {
+                jumpAnimation = 3;
+                isJumping = true;
+            }
+            if (jumpAnimation < 6) {
+                setImage(new GreenfootImage("jump" + jumpAnimation + ".png"));
+                if (fallingForward) {
+                    flipImage(getImage());
+                }
+                jumpAnimation++;
+            }
+        }
+    }
+    
+    private void animateRun() {
+        // Determine the direction of the run
+        boolean runningForward = (strafeSpeed > 0);
+    
+        // If player is running forward
+        if (strafeSpeed != 0 && animationTime(8)) {
+            if (runAnimation >= 7) {
+                runAnimation = 1;
+            }
+            setImage(new GreenfootImage("run" + runAnimation + ".png"));
+            // Flip the image only if the direction changes
+            if (!runningForward) {
+                flipImage(getImage());
+            }
+            runAnimation++;
+        }  
+    }
+    
+    private boolean animationTime(int t) {
+        if (animationTimer >= 2147483646) {
+            animationTimer = 0;
+        }
+        animationTimer++;
+        return animationTimer % t == 0;
+    }
+    
+    private void flipImage(GreenfootImage image) {
+        GreenfootImage flippedImage = new GreenfootImage(image);
+        flippedImage.mirrorHorizontally();
+        setImage(flippedImage);
+    }
+    private void displayTextbox(String text) {
+        GreenfootImage textbox = new GreenfootImage(225, 50);
+        textbox.setColor(Color.WHITE);
+        textbox.fill();
+        textbox.setColor(Color.BLACK);
+        textbox.setFont(new Font("Arial", true, false, 16));
+        textbox.drawString(text, 10, 25);
+
+        textboxActor = new Actor() {
+            {
+                setImage(textbox);
+            }
+        };
+
+        getWorld().addObject(textboxActor, getX(), getY() - 125);
     }
 }
