@@ -33,10 +33,9 @@ public class World3 extends World
         player.level = 3;
         addObject(player, 600, 750);
 
+        prepare();
         ti = new TitleImage();
         addObject(ti, getWidth() / 2, getHeight() / 2);
-
-        prepare();
     }
 
     public static GreenfootSound getBackgroundMusic() {
