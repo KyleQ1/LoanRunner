@@ -8,14 +8,11 @@ import greenfoot.GreenfootSound;
  */
 public class Obstacle extends Actor
 {
-    private GreenfootSound musica;
-    private GreenfootSound bomb;
-    public Obstacle(GreenfootSound music) {
+    private GreenfootSound slot = new GreenfootSound("bomb.mp3");
+    public Obstacle() {
         GreenfootImage image = new GreenfootImage("slotmachine.png");
         image.scale(52, 52);
         setImage(image);
-        
-        musica = music;
     }
         public void act()
     {
@@ -25,12 +22,29 @@ public class Obstacle extends Actor
     public void killStudent() {
         Student s = (Student) getOneIntersectingObject(Student.class);
         if (s!=null) {
-            MyWorld w = new MyWorld();
-            Greenfoot.setWorld(w);
-            bomb = new GreenfootSound("bomb.mp3");
-            bomb.setVolume(35);
-            bomb.play();
-            musica.stop();
+            if (Math.abs(getX() - s.getX()) < 30 
+             && Math.abs(getY() - s.getY()) < 30) 
+            {
+                World w;
+                if (s.level == 1) {
+                    w = new World1();
+                    s.level = 1;
+                    World1.getBackgroundMusic().stop();                    
+                } else if (s.level == 2) {
+                    w = new World2();
+                    s.level = 2;
+                    World2.getBackgroundMusic().stop();
+                } else if (s.level == 3) {
+                    w = new World3();
+                    s.level = 3;
+                    World3.getBackgroundMusic().stop();
+                } else {
+                    w = new Credits();
+                }
+                slot.setVolume(35);
+                slot.play();
+                Greenfoot.setWorld(w);
+            }
         }
     }
 }
