@@ -11,9 +11,9 @@ public class Platform extends Actor
     private boolean isPrint = false;
     public Platform() {
         // Set the image for the platform
-        setImage(new GreenfootImage(200, 10)); // Change dimensions as needed
-        getImage().setColor(Color.WHITE);
-        getImage().fill();
+        GreenfootImage image = new GreenfootImage("platformBackgroundImage.jpeg");
+        image.scale(200,10);
+        setImage(image);
     }
     
     public boolean isPrinted() {

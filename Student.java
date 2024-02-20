@@ -92,7 +92,7 @@ public class Student extends Actor {
     private boolean onGround() {
         // Check for platform directly below the Student
         Platform platform = (Platform) getOneIntersectingObject(Platform.class);
-        if (platform != null && v >= 0) {
+        if (platform != null && v >= 0 && Math.abs(getX() - platform.getX()) < 100) {
             // Student is on a platform
             setLocation(getX(), platform.getY()-45);
             return true;
