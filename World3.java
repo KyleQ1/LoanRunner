@@ -34,7 +34,6 @@ public class World3 extends World
         addObject(player, 600, 750);
 
         prepare();
-        
         ti = new TitleImage();
         addObject(ti, getWidth() / 2, getHeight() / 2);
     }

@@ -8,7 +8,7 @@ import greenfoot.GreenfootSound;
  */
 public class Obstacle extends Actor
 {
-    private GreenfootSound slot = new GreenfootSound("kaching.mp3");
+    private GreenfootSound slot = new GreenfootSound("bomb.mp3");
     public Obstacle() {
         GreenfootImage image = new GreenfootImage("slotmachine.png");
         image.scale(52, 52);

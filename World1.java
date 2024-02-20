@@ -23,8 +23,8 @@ public class World1 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 800, 1, false);
         setBackground("bg.jpg");
-
-        backgroundMusic.setVolume(50);
+        backgroundMusic = new GreenfootSound("bgMusic.mp3");
+        backgroundMusic.setVolume(35);
 
         Counter counter = new Counter();
         addObject(counter, 1150, 50);
