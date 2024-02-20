@@ -95,7 +95,7 @@ public class Counter extends Actor
     private void updateImage()
     {
         GreenfootImage image = new GreenfootImage(background);
-        GreenfootImage text = new GreenfootImage("Debt: " + value + "k", 22, Color.BLACK, transparent);
+        GreenfootImage text = new GreenfootImage("Debt: " + value + "k", 22, Color.WHITE, transparent);
         
         if (text.getWidth() > image.getWidth() - 20)
         {
