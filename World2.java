@@ -32,11 +32,13 @@ public class World2 extends World
         player = new Student(counter);
         player.level = 2;
         addObject(player, 600, 750);
-
+        
+        prepare();
+        
         ti = new TitleImage();
         addObject(ti, getWidth() / 2, getHeight() / 2);
 
-        prepare();
+       
     }
 
     public static GreenfootSound getBackgroundMusic() {
