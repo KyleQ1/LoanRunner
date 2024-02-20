@@ -2,6 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import greenfoot.GreenfootSound;
 
 public class Student extends Actor {
+    public int level = 1;
     private double v = 0; 
     private double g = .6; 
     private final int ground = 750; 
@@ -27,6 +28,7 @@ public class Student extends Actor {
         applyFriction();
         collectCoin();
         hitRoof();
+        winCondition();
     }
 
     public void fall() {
@@ -92,8 +94,11 @@ public class Student extends Actor {
     private void collectCoin() {
         Coin coin = (Coin) getOneIntersectingObject(Coin.class);
         if (coin != null) {
-            counter.addScore(5);
-            getWorld().removeObject(coin);
+            if (Math.abs(getY() - coin.getY()) < 40) 
+            {
+                counter.addScore(5);
+                getWorld().removeObject(coin);
+            }
         }
     }
     private void hitRoof() {
@@ -104,12 +109,23 @@ public class Student extends Actor {
     }
     private void winCondition() {
         LoanShark loan = (LoanShark) getOneIntersectingObject(LoanShark.class);
-        
         if (counter.getValue() >= 0) {
-            // Do something
+            if (loan != null) {
+                World w = null;
+                if (this.level == 1) {
+                    World1.getBackgroundMusic().stop();
+                    w = new World2();
+                    this.level++;
+                } else if (this.level == 2) {
+                    World2.getBackgroundMusic().stop();
+                    w = new World3();
+                    this.level++;
+                } else {
+                    w = new Credits();
+                }
+                Greenfoot.setWorld(w);
+            }
             
-            MyWorld w = new MyWorld();
-            Greenfoot.setWorld(w);
         }
     }
 }

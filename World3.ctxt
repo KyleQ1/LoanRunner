@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=World3
+comment0.text=\n\ Write\ a\ description\ of\ class\ World4\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=World3()
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ World4.\n\ \n
+comment2.params=
+comment2.target=greenfoot.GreenfootSound\ getBackgroundMusic()
+comment3.params=
+comment3.target=void\ act()
+comment4.params=
+comment4.target=void\ printPlatformCoordinates()
+comment5.params=
+comment5.target=void\ scrollWithPlayer()
+comment6.params=amount
+comment6.target=void\ scroll(int)
+comment7.params=
+comment7.target=void\ prepare()
+comment7.text=\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\n\ That\ is\:\ create\ the\ initial\ objects\ and\ add\ them\ to\ the\ world.\n
+numComments=8
