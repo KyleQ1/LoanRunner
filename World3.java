@@ -13,7 +13,7 @@ public class World3 extends World
     public static GreenfootSound backgroundMusic = new GreenfootSound("bgMusic.mp3");
     private Student player;
     private int SCROLL_SPEED = 15;
-    private TitleImage ti;
+    private TitleImage ti3;
 
     /**
      * Constructor for objects of class World4.
@@ -23,7 +23,7 @@ public class World3 extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 800, 1, false);
-        setBackground("bg.jpg");
+        
 
         backgroundMusic.setVolume(35);
 
@@ -33,8 +33,9 @@ public class World3 extends World
         player = new Student(counter);
         player.level = 3;
         addObject(player, 600, 750);
-        ti = new TitleImage();
-        addObject(ti, getWidth() / 2, getHeight() / 2);
+        ti3 = new TitleImage(3);
+        addObject(ti3, getWidth() / 2, getHeight() / 2);
+        setBackground("bg.jpg");
     }
 
     public static GreenfootSound getBackgroundMusic() {
@@ -42,7 +43,7 @@ public class World3 extends World
     }
 
     public void act() {
-        if (Greenfoot.isKeyDown("up") || Greenfoot.mouseClicked(ti)) {
+        if (Greenfoot.isKeyDown("up") || Greenfoot.mouseClicked(ti3)) {
             // Remove the TitleImage
             try{
                 removeObject(getObjects(TitleImage.class).get(0));

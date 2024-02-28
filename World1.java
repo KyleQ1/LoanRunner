@@ -45,7 +45,7 @@ public class World1 extends World
         LoanShark shark = new LoanShark();
         addObject(shark, 1024, 700);
         prepare();
-        ti = new TitleImage();
+        ti = new TitleImage(1);
         addObject(ti, getWidth() / 2, getHeight() / 2);
         Counter counter = new Counter();
         addObject(counter, 1150, 50);
