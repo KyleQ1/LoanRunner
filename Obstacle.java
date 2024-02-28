@@ -27,17 +27,17 @@ public class Obstacle extends Actor
             {
                 World w;
                 if (s.level == 1) {
+                    World1.getBackgroundMusic().stop();  
                     w = new World1();
                     s.level = 1;
-                    World1.getBackgroundMusic().stop();                    
                 } else if (s.level == 2) {
-                    w = new World2();
-                    s.level = 2;
                     World2.getBackgroundMusic().stop();
+                    w = new World2();
+                    s.level = 2; 
                 } else if (s.level == 3) {
+                    World3.getBackgroundMusic().stop();
                     w = new World3();
                     s.level = 3;
-                    World3.getBackgroundMusic().stop();
                 } else {
                     w = new Credits();
                 }

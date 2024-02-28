@@ -39,6 +39,7 @@ public class Counter extends Actor
 
     public Counter()
     {
+        setImage("Counter.png");
         background = getImage();
         value = -50;
         target = -50;

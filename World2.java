@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class World2 extends World
 {
-    public static GreenfootSound backgroundMusic = new GreenfootSound("bgMusic.mp3");
+    public static GreenfootSound backgroundMusic = new GreenfootSound("bg2Music.mp3");
     private Student player;
     private int SCROLL_SPEED = 15;
     private TitleImage ti2;
